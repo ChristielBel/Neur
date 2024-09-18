@@ -14,6 +14,69 @@ namespace _34_Belikova_project
     {
         private double[] inputPixels = new double[15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
+        // Шаблоны для каждой цифры с вариантами
+        private readonly double[][][] digits = new double[][][]
+        {
+            // Варианты для 0
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1 }, 
+                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 },
+                new double[] { 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0 },
+            },
+            // Варианты для 1
+            new double[][]
+            {
+                new double[] { 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0 },
+                new double[] { 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1 },
+            },
+            // Варианты для 2
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 }
+            },
+            // Варианты для 3
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 }, 
+            },
+            // Варианты для 4
+            new double[][]
+            {
+                new double[] { 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+                new double[] { 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 },
+                new double[] { 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1 }
+            },
+            // Варианты для 5
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1 }
+            },
+            // Варианты для 6
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 }, 
+                new double[] { 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1 }  
+            },
+            // Варианты для 7
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0 }, 
+                new double[] { 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1 }  
+            },
+            // Варианты для 8
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 }
+            },
+            // Варианты для 9
+            new double[][]
+            {
+                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 }
+            }
+        };
+
+
         public Form1()
         {
             InitializeComponent();
@@ -26,82 +89,105 @@ namespace _34_Belikova_project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ChangeState(button2, 0);
+            ChangeState(button2, 1);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ChangeState(button3, 0);
+            ChangeState(button3, 2);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ChangeState(button4, 0);
+            ChangeState(button4, 3);
         }
         private void button5_Click(object sender, EventArgs e)
         {
-            ChangeState(button5, 0);
+            ChangeState(button5, 4);
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            ChangeState(button6, 0);
+            ChangeState(button6, 5);
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            ChangeState(button7, 0);
+            ChangeState(button7, 6);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            ChangeState(button8, 0);
+            ChangeState(button8, 7);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            ChangeState(button9, 0);
+            ChangeState(button9, 8);
         }
         private void button10_Click(object sender, EventArgs e)
         {
-            ChangeState(button10, 0);
+            ChangeState(button10, 9);
         }
         private void button11_Click(object sender, EventArgs e)
         {
-            ChangeState(button11, 0);
+            ChangeState(button11, 10);
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            ChangeState(button12, 0);
+            ChangeState(button12, 11);
         }
 
         private void button13_Click(object sender, EventArgs e)
         {
-            ChangeState(button13, 0);
+            ChangeState(button13, 12);
         }
 
         private void button14_Click(object sender, EventArgs e)
         {
-            ChangeState(button14, 0);
+            ChangeState(button14, 13);
         }
         private void button15_Click(object sender, EventArgs e)
         {
-            ChangeState(button15, 0);
+            ChangeState(button15, 14);
         }
 
 
         private void ChangeState(Button b, int index)
         {
-            if(b.BackColor == Color.Black)
-            {
-                b.BackColor = Color.White;
-                inputPixels[index] = 1;
-            }else if (b.BackColor == Color.White)
+            if (b.BackColor == Color.White)
             {
                 b.BackColor = Color.Black;
+                inputPixels[index] = 1;
+            }
+            else if (b.BackColor == Color.Black)
+            {
+                b.BackColor = Color.White;
                 inputPixels[index] = 0;
             }
-
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            string recognizedDigit = RecognizeDigit(inputPixels);
+            richTextBox1.Text = recognizedDigit;
+        }
+
+        private string RecognizeDigit(double[] input)
+        {
+            for (int i = 0; i < digits.Length; i++)
+            {
+                foreach (var template in digits[i])
+                {
+                    if (input.SequenceEqual(template))
+                    {
+                        return i.ToString(); // Вернем цифру
+                    }
+                }
+            }
+            return "Не распознано";
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e) { }
     }
 }
