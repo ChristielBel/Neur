@@ -46,6 +46,10 @@ namespace _34_Belikova_project
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.numericUpDownTrue = new System.Windows.Forms.NumericUpDown();
+            this.buttonSaveTrainSample = new System.Windows.Forms.Button();
+            this.buttonSaveTestSample = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -216,7 +220,7 @@ namespace _34_Belikova_project
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(83, 225);
+            this.button16.Location = new System.Drawing.Point(258, 30);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(102, 30);
             this.button16.TabIndex = 15;
@@ -226,18 +230,53 @@ namespace _34_Belikova_project
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(83, 286);
+            this.richTextBox1.Location = new System.Drawing.Point(119, 266);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(102, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(204, 96);
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // numericUpDownTrue
+            // 
+            this.numericUpDownTrue.Location = new System.Drawing.Point(258, 76);
+            this.numericUpDownTrue.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numericUpDownTrue.Name = "numericUpDownTrue";
+            this.numericUpDownTrue.Size = new System.Drawing.Size(102, 20);
+            this.numericUpDownTrue.TabIndex = 17;
+            // 
+            // buttonSaveTrainSample
+            // 
+            this.buttonSaveTrainSample.Location = new System.Drawing.Point(258, 106);
+            this.buttonSaveTrainSample.Name = "buttonSaveTrainSample";
+            this.buttonSaveTrainSample.Size = new System.Drawing.Size(150, 23);
+            this.buttonSaveTrainSample.TabIndex = 18;
+            this.buttonSaveTrainSample.Text = "Save trainig example";
+            this.buttonSaveTrainSample.UseVisualStyleBackColor = true;
+            this.buttonSaveTrainSample.Click += new System.EventHandler(this.buttonSaveTrainSample_Click);
+            // 
+            // buttonSaveTestSample
+            // 
+            this.buttonSaveTestSample.Location = new System.Drawing.Point(258, 145);
+            this.buttonSaveTestSample.Name = "buttonSaveTestSample";
+            this.buttonSaveTestSample.Size = new System.Drawing.Size(150, 23);
+            this.buttonSaveTestSample.TabIndex = 19;
+            this.buttonSaveTestSample.Text = "Save test example";
+            this.buttonSaveTestSample.UseVisualStyleBackColor = true;
+            this.buttonSaveTestSample.Click += new System.EventHandler(this.buttonSaveTestSample_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonSaveTestSample);
+            this.Controls.Add(this.buttonSaveTrainSample);
+            this.Controls.Add(this.numericUpDownTrue);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
@@ -257,6 +296,7 @@ namespace _34_Belikova_project
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -280,6 +320,9 @@ namespace _34_Belikova_project
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownTrue;
+        private System.Windows.Forms.Button buttonSaveTrainSample;
+        private System.Windows.Forms.Button buttonSaveTestSample;
     }
 }
 

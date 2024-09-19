@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace _34_Belikova_project
 {
@@ -189,5 +190,59 @@ namespace _34_Belikova_project
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e) { }
+
+        private void SaveTrain(decimal vale, double[] input)
+        {
+            string pathDir; // каталог с обучающими данными
+            string nameFileTrain; // имя файла обучающей выборки
+
+            pathDir = AppDomain.CurrentDomain.BaseDirectory;
+            nameFileTrain = pathDir + "train.txt";
+
+            string[] tmpStr = new string[1];
+            tmpStr[0] = vale.ToString();
+            for(int i=0; i < 15; i++)
+            {
+                tmpStr[0] += input[i].ToString();
+            }
+
+            if (File.Exists(nameFileTrain))
+            {
+                File.AppendAllLines(nameFileTrain, tmpStr);
+            }
+
+        }
+
+        private void SaveTest(decimal vale, double[] input)
+        {
+            string pathDir; 
+            string nameFileTest; 
+
+            pathDir = AppDomain.CurrentDomain.BaseDirectory;
+            nameFileTest = pathDir + "test.txt";
+
+            string[] tmpStr = new string[1];
+            tmpStr[0] = vale.ToString();
+            for (int i = 0; i < 15; i++)
+            {
+                tmpStr[0] += input[i].ToString();
+            }
+
+            if (File.Exists(nameFileTest))
+            {
+                File.AppendAllLines(nameFileTest, tmpStr);
+            }
+
+        }
+
+        private void buttonSaveTrainSample_Click(object sender, EventArgs e)
+        {
+            SaveTrain(numericUpDownTrue.Value, inputPixels);
+        }
+
+        private void buttonSaveTestSample_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
