@@ -53,7 +53,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="NeurNet\Enums.cs" />
+    <Compile Include="NeurNet\HiddenLayer.cs" />
+    <Compile Include="NeurNet\InputLayer.cs" />
+    <Compile Include="NeurNet\Layer.cs" />
+    <Compile Include="NeurNet\NetWork.cs" />
     <Compile Include="NeurNet\Neuron.cs" />
+    <Compile Include="NeurNet\OutputLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
