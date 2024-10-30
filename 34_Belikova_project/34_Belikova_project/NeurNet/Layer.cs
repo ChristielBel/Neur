@@ -75,8 +75,27 @@ namespace _34_Belikova_project.NeurNet
                     }
                     break;
                 case MemoryMode.SET:
+                    using (StreamWriter writer = new StreamWriter(path))
+                    {
+                        for (int i = 0; i < numofneurons; i++)
+                        {
+                            for (int j = 0; j < numofprevneurouns + 1; j++)
+                            {
+                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + ";");
+                            }
+                            writer.WriteLine();
+                        }
+                    }
                     break;
                 case MemoryMode.INIT:
+                    Random random = new Random();
+                    for (int i = 0; i < numofneurons; i++)
+                    {
+                        for (int j = 0; j < numofprevneurouns + 1; j++)
+                        {
+                            weights[i, j] = random.NextDouble() - 0.5; // вес от -0.5 до 0.5
+                        }
+                    }
                     break;
             }
             return weights;
