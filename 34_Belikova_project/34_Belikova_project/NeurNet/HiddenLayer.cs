@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace _34_Belikova_project.NeurNet
 {
-    class HiddenLayer
+    class HiddenLayer : Layer
     {
+        public HiddenLayer(int numNeurons, int numPrevNeurons, NeuronType neuronType, string nameLayer)
+            : base(numNeurons, numPrevNeurons, neuronType, nameLayer) { }
     }
 }

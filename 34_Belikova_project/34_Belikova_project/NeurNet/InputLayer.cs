@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _34_Belikova_project.NeurNet
 {
-    class InputLayer
+    class InputLayer : Layer
     {
+        public InputLayer(int numNeurons, string nameLayer) : base(numNeurons, 0, NeuronType.Hidden, nameLayer) { }
     }
 }
