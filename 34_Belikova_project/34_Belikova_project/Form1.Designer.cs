@@ -45,10 +45,10 @@ namespace _34_Belikova_project
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.numericUpDownTrue = new System.Windows.Forms.NumericUpDown();
             this.buttonSaveTrainSample = new System.Windows.Forms.Button();
             this.buttonSaveTestSample = new System.Windows.Forms.Button();
+            this.labelAnswer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,15 +228,6 @@ namespace _34_Belikova_project
             this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(119, 266);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(204, 96);
-            this.richTextBox1.TabIndex = 16;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
             // numericUpDownTrue
             // 
             this.numericUpDownTrue.Location = new System.Drawing.Point(258, 76);
@@ -269,15 +260,27 @@ namespace _34_Belikova_project
             this.buttonSaveTestSample.UseVisualStyleBackColor = true;
             this.buttonSaveTestSample.Click += new System.EventHandler(this.buttonSaveTestSample_Click);
             // 
+            // labelAnswer
+            // 
+            this.labelAnswer.AutoSize = true;
+            this.labelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.labelAnswer.Location = new System.Drawing.Point(251, 194);
+            this.labelAnswer.Name = "labelAnswer";
+            this.labelAnswer.Size = new System.Drawing.Size(195, 38);
+            this.labelAnswer.TabIndex = 20;
+            this.labelAnswer.Text = "labelAnswer";
+            this.labelAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelAnswer.UseWaitCursor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelAnswer);
             this.Controls.Add(this.buttonSaveTestSample);
             this.Controls.Add(this.buttonSaveTrainSample);
             this.Controls.Add(this.numericUpDownTrue);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
@@ -298,6 +301,7 @@ namespace _34_Belikova_project
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -319,10 +323,10 @@ namespace _34_Belikova_project
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.NumericUpDown numericUpDownTrue;
         private System.Windows.Forms.Button buttonSaveTrainSample;
         private System.Windows.Forms.Button buttonSaveTestSample;
+        private System.Windows.Forms.Label labelAnswer;
     }
 }
 

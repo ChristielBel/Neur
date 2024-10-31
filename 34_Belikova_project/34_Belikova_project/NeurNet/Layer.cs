@@ -50,6 +50,18 @@ namespace _34_Belikova_project.NeurNet
                 Directory.CreateDirectory(pathDirWeights);
                 Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
             }
+
+            lastdeltaweights = new double[non, nopn + 1];
+
+            for(int i = 0; i < non; i++)
+            {
+                double[] tmp_weights = new double[nopn + 1];
+                for(int j = 0; j < nopn; j++)
+                {
+                    tmp_weights[j] = Weights[i, j];
+                }
+                Neurons[i] = new Neuron(tmp_weights, nt);
+            }
         }
 
         //метод для работы с массивом синаптических весов слоя
@@ -100,5 +112,11 @@ namespace _34_Belikova_project.NeurNet
             }
             return weights;
         }
+
+        //для прямых проходов
+        abstract public void Recognize(NetWork net, Layer nextLayer);
+        //для обратных
+        abstract public double[] BackwardPass(double[] stuff);
+
     }
 }

@@ -15,67 +15,9 @@ namespace _34_Belikova_project
     {
         private double[] inputPixels = new double[15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-        // Шаблоны для каждой цифры с вариантами
-        private readonly double[][][] digits = new double[][][]
-        {
-            // Варианты для 0
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1 },
-                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 },
-                new double[] { 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0 },
-            },
-            // Варианты для 1
-            new double[][]
-            {
-                new double[] { 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0 },
-                new double[] { 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1 },
-            },
-            // Варианты для 2
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1 }
-            },
-            // Варианты для 3
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 },
-            },
-            // Варианты для 4
-            new double[][]
-            {
-                new double[] { 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
-                new double[] { 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1 },
-                new double[] { 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1 }
-            },
-            // Варианты для 5
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1 }
-            },
-            // Варианты для 6
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 },
-                new double[] { 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1 }
-            },
-            // Варианты для 7
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0 },
-                new double[] { 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1 }
-            },
-            // Варианты для 8
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1 }
-            },
-            // Варианты для 9
-            new double[][]
-            {
-                new double[] { 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1 }
-            }
-        };
+        private NeurNet.NetWork net = new NeurNet.NetWork();
+
+   
 
 
         public Form1()
@@ -170,26 +112,10 @@ namespace _34_Belikova_project
 
         private void button16_Click(object sender, EventArgs e)
         {
-            string recognizedDigit = RecognizeDigit(inputPixels);
-            richTextBox1.Text = recognizedDigit;
+            net.ForwardPass(net, inputPixels);
+            labelAnswer.Text = net.fact.ToList().IndexOf(net.fact.Max()).ToString();
         }
 
-        private string RecognizeDigit(double[] input)
-        {
-            for (int i = 0; i < digits.Length; i++)
-            {
-                foreach (var template in digits[i])
-                {
-                    if (input.SequenceEqual(template))
-                    {
-                        return i.ToString(); // Вернем цифру
-                    }
-                }
-            }
-            return "Не распознано";
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e) { }
 
         private void SaveTrain(decimal vale, double[] input)
         {

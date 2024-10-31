@@ -25,11 +25,10 @@ namespace _34_Belikova_project.NeurNet
         public double Derivative { get => _derivative; }
 
         //конструктор
-        public Neuron(double[] inputs, double[] weights, NeuronType type)
+        public Neuron(double[] weights, NeuronType type)
         {
             _type = type;
             _weights = weights;
-            _inputs = inputs;
         }
 
         public void Activator(double[] i, double[] w)

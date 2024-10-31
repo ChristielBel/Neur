@@ -8,6 +8,6 @@ namespace _34_Belikova_project.NeurNet
 {
     class InputLayer 
     {
-
+       
     }
 }
