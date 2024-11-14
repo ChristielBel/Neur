@@ -100,12 +100,44 @@ namespace _34_Belikova_project.NeurNet
                     }
                     break;
                 case MemoryMode.INIT:
+                    double sum = 0;
+                    double sumSquared = 0;
                     Random random = new Random();
+
+                    // Шаг 1: Генерация весов от -1 до 1 и рассчет суммы и суммы квадратов для нормализации
                     for (int i = 0; i < numofneurons; i++)
                     {
                         for (int j = 0; j < numofprevneurouns + 1; j++)
                         {
-                            weights[i, j] = random.NextDouble() - 0.5; // вес от -0.5 до 0.5
+                            weights[i, j] = 2 * random.NextDouble() - 1; // диапазон от -1 до 1
+                            sum += weights[i, j];
+                            sumSquared += weights[i, j] * weights[i, j];
+                        }
+                    }
+
+                    // Шаг 2: Расчет среднего и стандартного отклонения
+                    double mean = sum / (numofneurons * (numofprevneurouns + 1));
+                    double variance = (sumSquared / (numofneurons * (numofprevneurouns + 1))) - (mean * mean);
+                    double stdDev = Math.Sqrt(variance);
+
+                    // Шаг 3: Нормализация весов для соблюдения условий
+                    for (int i = 0; i < numofneurons; i++)
+                    {
+                        for (int j = 0; j < numofprevneurouns + 1; j++)
+                        {
+                            // Корректируем вес, чтобы среднее значение стало 0, а стандартное отклонение — 1
+                            weights[i, j] = (weights[i, j] - mean) / stdDev;
+                        }
+                    }
+                    using (StreamWriter writer = new StreamWriter("weights_output.txt"))
+                    {
+                        for (int i = 0; i < numofneurons; i++)
+                        {
+                            for (int j = 0; j < numofprevneurouns + 1; j++)
+                            {
+                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + "\t");
+                            }
+                            writer.WriteLine(); // Перевод строки после каждого нейрона
                         }
                     }
                     break;
