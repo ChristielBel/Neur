@@ -25,6 +25,18 @@ namespace _34_Belikova_project.NeurNet
 
         }
 
+        public void Train(NetWork net)
+        {
+            int epoches = 70; // кол-во эпох обучения(кол-во прогонов программы)
+            net.input_layer = new InputLayer(NetworkMode.Train); //инициализация входного слоя
+            double tmpSumError;// временная переменная суммы ошибок
+            double[] errors;//вектор сигнала ошибки
+            double[] temp_gsums1;//вектор градиента 1 скрытого слоя
+            double[] temp_gsums2;//вектор градиента 2 скрытого слоя
+
+
+        }
+
         //прямой проход сети
         public void ForwardPass(NetWork net, double[] netInput)
         {

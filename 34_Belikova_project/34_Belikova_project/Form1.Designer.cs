@@ -49,6 +49,8 @@ namespace _34_Belikova_project
             this.buttonSaveTrainSample = new System.Windows.Forms.Button();
             this.buttonSaveTestSample = new System.Windows.Forms.Button();
             this.labelAnswer = new System.Windows.Forms.Label();
+            this.button17 = new System.Windows.Forms.Button();
+            this.buttonTrain = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@ namespace _34_Belikova_project
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(83, 30);
+            this.button1.Location = new System.Drawing.Point(18, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 30);
             this.button1.TabIndex = 0;
@@ -67,7 +69,7 @@ namespace _34_Belikova_project
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(119, 30);
+            this.button2.Location = new System.Drawing.Point(54, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 30);
             this.button2.TabIndex = 1;
@@ -78,7 +80,7 @@ namespace _34_Belikova_project
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(155, 30);
+            this.button3.Location = new System.Drawing.Point(90, 14);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(30, 30);
             this.button3.TabIndex = 2;
@@ -89,7 +91,7 @@ namespace _34_Belikova_project
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(83, 66);
+            this.button4.Location = new System.Drawing.Point(18, 50);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(30, 30);
             this.button4.TabIndex = 3;
@@ -100,7 +102,7 @@ namespace _34_Belikova_project
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(119, 66);
+            this.button5.Location = new System.Drawing.Point(54, 50);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(30, 30);
             this.button5.TabIndex = 4;
@@ -111,7 +113,7 @@ namespace _34_Belikova_project
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(155, 66);
+            this.button6.Location = new System.Drawing.Point(90, 50);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(30, 30);
             this.button6.TabIndex = 5;
@@ -122,7 +124,7 @@ namespace _34_Belikova_project
             // 
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(83, 102);
+            this.button7.Location = new System.Drawing.Point(18, 86);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(30, 30);
             this.button7.TabIndex = 6;
@@ -133,7 +135,7 @@ namespace _34_Belikova_project
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(119, 102);
+            this.button8.Location = new System.Drawing.Point(54, 86);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(30, 30);
             this.button8.TabIndex = 7;
@@ -144,7 +146,7 @@ namespace _34_Belikova_project
             // 
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Location = new System.Drawing.Point(155, 102);
+            this.button9.Location = new System.Drawing.Point(90, 86);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(30, 30);
             this.button9.TabIndex = 8;
@@ -155,7 +157,7 @@ namespace _34_Belikova_project
             // 
             this.button10.BackColor = System.Drawing.Color.White;
             this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Location = new System.Drawing.Point(83, 138);
+            this.button10.Location = new System.Drawing.Point(18, 122);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(30, 30);
             this.button10.TabIndex = 9;
@@ -166,7 +168,7 @@ namespace _34_Belikova_project
             // 
             this.button11.BackColor = System.Drawing.Color.White;
             this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button11.Location = new System.Drawing.Point(119, 138);
+            this.button11.Location = new System.Drawing.Point(54, 122);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(30, 30);
             this.button11.TabIndex = 10;
@@ -177,7 +179,7 @@ namespace _34_Belikova_project
             // 
             this.button12.BackColor = System.Drawing.Color.White;
             this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Location = new System.Drawing.Point(155, 138);
+            this.button12.Location = new System.Drawing.Point(90, 122);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(30, 30);
             this.button12.TabIndex = 11;
@@ -188,7 +190,7 @@ namespace _34_Belikova_project
             // 
             this.button13.BackColor = System.Drawing.Color.White;
             this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button13.Location = new System.Drawing.Point(83, 174);
+            this.button13.Location = new System.Drawing.Point(18, 158);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(30, 30);
             this.button13.TabIndex = 12;
@@ -199,7 +201,7 @@ namespace _34_Belikova_project
             // 
             this.button14.BackColor = System.Drawing.Color.White;
             this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button14.Location = new System.Drawing.Point(119, 174);
+            this.button14.Location = new System.Drawing.Point(54, 158);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(30, 30);
             this.button14.TabIndex = 13;
@@ -210,7 +212,7 @@ namespace _34_Belikova_project
             // 
             this.button15.BackColor = System.Drawing.Color.White;
             this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button15.Location = new System.Drawing.Point(155, 174);
+            this.button15.Location = new System.Drawing.Point(90, 158);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(30, 30);
             this.button15.TabIndex = 14;
@@ -220,7 +222,7 @@ namespace _34_Belikova_project
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(258, 30);
+            this.button16.Location = new System.Drawing.Point(193, 14);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(102, 30);
             this.button16.TabIndex = 15;
@@ -230,7 +232,7 @@ namespace _34_Belikova_project
             // 
             // numericUpDownTrue
             // 
-            this.numericUpDownTrue.Location = new System.Drawing.Point(258, 76);
+            this.numericUpDownTrue.Location = new System.Drawing.Point(193, 60);
             this.numericUpDownTrue.Maximum = new decimal(new int[] {
             9,
             0,
@@ -242,7 +244,7 @@ namespace _34_Belikova_project
             // 
             // buttonSaveTrainSample
             // 
-            this.buttonSaveTrainSample.Location = new System.Drawing.Point(258, 106);
+            this.buttonSaveTrainSample.Location = new System.Drawing.Point(193, 90);
             this.buttonSaveTrainSample.Name = "buttonSaveTrainSample";
             this.buttonSaveTrainSample.Size = new System.Drawing.Size(150, 23);
             this.buttonSaveTrainSample.TabIndex = 18;
@@ -252,7 +254,7 @@ namespace _34_Belikova_project
             // 
             // buttonSaveTestSample
             // 
-            this.buttonSaveTestSample.Location = new System.Drawing.Point(258, 145);
+            this.buttonSaveTestSample.Location = new System.Drawing.Point(193, 129);
             this.buttonSaveTestSample.Name = "buttonSaveTestSample";
             this.buttonSaveTestSample.Size = new System.Drawing.Size(150, 23);
             this.buttonSaveTestSample.TabIndex = 19;
@@ -264,7 +266,7 @@ namespace _34_Belikova_project
             // 
             this.labelAnswer.AutoSize = true;
             this.labelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.labelAnswer.Location = new System.Drawing.Point(251, 194);
+            this.labelAnswer.Location = new System.Drawing.Point(163, 266);
             this.labelAnswer.Name = "labelAnswer";
             this.labelAnswer.Size = new System.Drawing.Size(195, 38);
             this.labelAnswer.TabIndex = 20;
@@ -272,11 +274,32 @@ namespace _34_Belikova_project
             this.labelAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelAnswer.UseWaitCursor = true;
             // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(220, 208);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.TabIndex = 21;
+            this.button17.Text = "button17";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // buttonTrain
+            // 
+            this.buttonTrain.Location = new System.Drawing.Point(220, 165);
+            this.buttonTrain.Name = "buttonTrain";
+            this.buttonTrain.Size = new System.Drawing.Size(75, 23);
+            this.buttonTrain.TabIndex = 22;
+            this.buttonTrain.Text = "Train";
+            this.buttonTrain.UseVisualStyleBackColor = true;
+            this.buttonTrain.Click += new System.EventHandler(this.button18_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(474, 335);
+            this.Controls.Add(this.buttonTrain);
+            this.Controls.Add(this.button17);
             this.Controls.Add(this.labelAnswer);
             this.Controls.Add(this.buttonSaveTestSample);
             this.Controls.Add(this.buttonSaveTrainSample);
@@ -327,6 +350,8 @@ namespace _34_Belikova_project
         private System.Windows.Forms.Button buttonSaveTrainSample;
         private System.Windows.Forms.Button buttonSaveTestSample;
         private System.Windows.Forms.Label labelAnswer;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button buttonTrain;
     }
 }
 

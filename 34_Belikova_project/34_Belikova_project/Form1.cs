@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -13,16 +8,77 @@ namespace _34_Belikova_project
 {
     public partial class Form1 : Form
     {
-        private double[] inputPixels = new double[15] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        private double[] inputPixels;
 
-        private NeurNet.NetWork net = new NeurNet.NetWork();
+        private NeurNet.NetWork net;
 
    
-
-
         public Form1()
         {
             InitializeComponent();
+
+            inputPixels = new double[15];
+            net = new NeurNet.NetWork();
+        }
+
+
+        private void ChangeState(Button b, int index)
+        {
+            if (b.BackColor == Color.White)
+            {
+                b.BackColor = Color.Black;
+                inputPixels[index] = 1;
+            }
+            else if (b.BackColor == Color.Black)
+            {
+                b.BackColor = Color.White;
+                inputPixels[index] = 0;
+            }
+        }
+
+
+        private void SaveTrain(decimal vale, double[] input)
+        {
+            string pathDir; // каталог с обучающими данными
+            string nameFileTrain; // имя файла обучающей выборки
+
+            pathDir = AppDomain.CurrentDomain.BaseDirectory;
+            nameFileTrain = pathDir + "train.txt";
+
+            string[] tmpStr = new string[1];
+            tmpStr[0] = vale.ToString();
+            for (int i = 0; i < 15; i++)
+            {
+                tmpStr[0] += input[i].ToString();
+            }
+
+            if (File.Exists(nameFileTrain))
+            {
+                File.AppendAllLines(nameFileTrain, tmpStr);
+            }
+
+        }
+
+        private void SaveTest(decimal vale, double[] input)
+        {
+            string pathDir;
+            string nameFileTest;
+
+            pathDir = AppDomain.CurrentDomain.BaseDirectory;
+            nameFileTest = pathDir + "test.txt";
+
+            string[] tmpStr = new string[1];
+            tmpStr[0] = vale.ToString();
+            for (int i = 0; i < 15; i++)
+            {
+                tmpStr[0] += input[i].ToString();
+            }
+
+            if (File.Exists(nameFileTest))
+            {
+                File.AppendAllLines(nameFileTest, tmpStr);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -95,70 +151,11 @@ namespace _34_Belikova_project
             ChangeState(button15, 14);
         }
 
-
-        private void ChangeState(Button b, int index)
-        {
-            if (b.BackColor == Color.White)
-            {
-                b.BackColor = Color.Black;
-                inputPixels[index] = 1;
-            }
-            else if (b.BackColor == Color.Black)
-            {
-                b.BackColor = Color.White;
-                inputPixels[index] = 0;
-            }
-        }
-
+        //распознать
         private void button16_Click(object sender, EventArgs e)
         {
             net.ForwardPass(net, inputPixels);
             labelAnswer.Text = net.fact.ToList().IndexOf(net.fact.Max()).ToString();
-        }
-
-
-        private void SaveTrain(decimal vale, double[] input)
-        {
-            string pathDir; // каталог с обучающими данными
-            string nameFileTrain; // имя файла обучающей выборки
-
-            pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTrain = pathDir + "train.txt";
-
-            string[] tmpStr = new string[1];
-            tmpStr[0] = vale.ToString();
-            for (int i = 0; i < 15; i++)
-            {
-                tmpStr[0] += input[i].ToString();
-            }
-
-            if (File.Exists(nameFileTrain))
-            {
-                File.AppendAllLines(nameFileTrain, tmpStr);
-            }
-
-        }
-
-        private void SaveTest(decimal vale, double[] input)
-        {
-            string pathDir;
-            string nameFileTest;
-
-            pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTest = pathDir + "test.txt";
-
-            string[] tmpStr = new string[1];
-            tmpStr[0] = vale.ToString();
-            for (int i = 0; i < 15; i++)
-            {
-                tmpStr[0] += input[i].ToString();
-            }
-
-            if (File.Exists(nameFileTest))
-            {
-                File.AppendAllLines(nameFileTest, tmpStr);
-            }
-
         }
 
         private void buttonSaveTrainSample_Click(object sender, EventArgs e)
@@ -169,6 +166,12 @@ namespace _34_Belikova_project
         private void buttonSaveTestSample_Click(object sender, EventArgs e)
         {
             SaveTest(numericUpDownTrue.Value, inputPixels);
+        }
+
+        // обучить
+        private void button18_Click(object sender, EventArgs e)
+        {
+            net.Train(net);
         }
     }
 }
