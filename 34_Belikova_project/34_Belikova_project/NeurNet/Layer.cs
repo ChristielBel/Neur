@@ -14,10 +14,10 @@ namespace _34_Belikova_project.NeurNet
         protected const double learningrate = 0.005d;
         protected const double momentum = 0.05d;
         protected double[,] lastdeltaweights;
-        Neuron[] _neurons;
+        protected Neuron[] neurons;
 
         //Свойства
-        public Neuron[] Neurons { get => _neurons; set => _neurons = value; }
+        public Neuron[] Neurons { get => neurons; set => neurons = value; }
 
         public double[] Data
         {
@@ -25,8 +25,8 @@ namespace _34_Belikova_project.NeurNet
             {
                 for(int i = 0; i < Neurons.Length; i++)
                 {
-                    Neurons[i].Inputs = value;
-                    Neurons[i].Activator(Neurons[i].Inputs, Neurons[i].Weights);
+                    neurons[i].Inputs = value;
+                    neurons[i].Activator(Neurons[i].Inputs, Neurons[i].Weights);
                 }
             }
         }
@@ -36,7 +36,7 @@ namespace _34_Belikova_project.NeurNet
         {
             numofneurons = non;
             numofprevneurouns = nopn;
-            Neurons = new Neuron[non];
+            neurons = new Neuron[non];
             name_Layer = nm_Layer;
             pathDirWeights = AppDomain.CurrentDomain.BaseDirectory + "memory\\";
             pathFileWeights = pathDirWeights + name_Layer + "_memory.csv";
@@ -60,7 +60,7 @@ namespace _34_Belikova_project.NeurNet
                 {
                     tmp_weights[j] = Weights[i, j];
                 }
-                Neurons[i] = new Neuron(tmp_weights, nt);
+                neurons[i] = new Neuron(tmp_weights, nt);
             }
         }
 

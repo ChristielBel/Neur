@@ -169,9 +169,16 @@ namespace _34_Belikova_project
         }
 
         // обучить
-        private void button18_Click(object sender, EventArgs e)
+        private void buttonTrain_Click(object sender, EventArgs e)
         {
             net.Train(net);
         }
+
+        //тестировать
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -16,7 +16,9 @@ namespace _34_Belikova_project.NeurNet
 
         public double[,] Testset { get => testset; }
 
-        public InputLayer(NetworkMode nm){
+        //конструктор
+        public InputLayer(NetworkMode nm)
+        {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             string[] tmpStr;
             string[] tmpArrStr;
@@ -36,31 +38,40 @@ namespace _34_Belikova_project.NeurNet
                         }
                     }
                     //метод перетасовки Фишера-Йетса
-                    for (int n = trainset.GetLength(0) - 1; n >= 1; n--)
-                    {
-                        int j = random.Next(n + 1);
-                        double[] temp = new double[trainset.GetLength(1)];
-
-                        for (int i = 0; i < trainset.GetLength(1); i++)
-                        {
-                            temp[i] = trainset[n, i];
-                        }
-                        for (int i = 0; i < trainset.GetLength(1); i++)
-                        {
-                            trainset[n, i] = trainset[j, i];
-                            trainset[j, i] = temp[i];
-                        }
-                    }
+                    Shuffling_Array_Rows(trainset);
                     break;
                 case NetworkMode.Test:
                     tmpArrStr = File.ReadAllLines(path + "test.text");
-
+                    //ДОПИСАТЬ СЧИТЫВАНИЕ ПО АНАЛОГИИ С TRAIN (ВЫШЕ)
                     break;
                 case NetworkMode.Recogn:
                     break;
 
             } 
-
         }
+    
+        public void Shuffling_Array_Rows(double[,] arr)
+        {
+            int j;
+            Random random = new Random();
+            double[] temp = new double[arr.GetLength(1)];
+
+            for(int n = arr.GetLength(0) - 1; n >= 1; n--)
+            {
+                j = random.Next(n + 1);
+
+                for(int i = 0; i < arr.GetLength(1); i++)
+                {
+                    temp[i] = arr[n, i];
+                }
+
+                for(int i = 0; i < arr.GetLength(1); i++)
+                {
+                    arr[n, i] = arr[j, i];
+                    arr[j, i] = temp[i];
+                }
+            }
+        }
+    
     }
 }
