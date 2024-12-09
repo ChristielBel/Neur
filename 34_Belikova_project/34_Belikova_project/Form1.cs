@@ -172,6 +172,11 @@ namespace _34_Belikova_project
         private void buttonTrain_Click(object sender, EventArgs e)
         {
             net.Train(net);
+            for(int i = 0; i < net.E_error_avr.Length; i++)
+            {
+                chartEavr.Series[0].Points.AddY(net.E_error_avr[i]);
+            }
+            MessageBox.Show("Обучение успешно завершено.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         //тестировать
