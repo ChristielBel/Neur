@@ -27,22 +27,41 @@ namespace _34_Belikova_project.NeurNet
             switch (nm)
             {
                 case NetworkMode.Train:
-                    tmpArrStr = File.ReadAllLines(path + "train.text");
+                    tmpArrStr = File.ReadAllLines(path + "train.txt");
                     for (int i = 0; i < tmpArrStr.Length; i++)
                     {
-                        tmpStr = tmpArrStr[i].Split();
-                        tmpArr = new double[tmpStr.Length];
-                        for (int j = 0; j < tmpArrStr.Length; j++)
+                        string line = tmpArrStr[i];
+                        if (line.Length != 16) // Проверка на корректность длины строки
+                            throw new FormatException($"Некорректный формат строки {i}: {line}");
+
+                        // Сохраняем желаемый отклик
+                        trainset[i, 0] = double.Parse(line[0].ToString(), System.Globalization.CultureInfo.InvariantCulture);
+
+                        // Сохраняем пиксели
+                        for (int j = 1; j < 16; j++)
                         {
-                            tmpArr[j] = double.Parse(tmpStr[j], System.Globalization.CultureInfo.InvariantCulture);
+                            trainset[i, j] = double.Parse(line[j].ToString(), System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
                     //метод перетасовки Фишера-Йетса
                     Shuffling_Array_Rows(trainset);
                     break;
                 case NetworkMode.Test:
-                    tmpArrStr = File.ReadAllLines(path + "test.text");
-                    //ДОПИСАТЬ СЧИТЫВАНИЕ ПО АНАЛОГИИ С TRAIN (ВЫШЕ)
+                    tmpArrStr = File.ReadAllLines(path + "test.txt");
+                    for (int i = 0; i < tmpArrStr.Length; i++)
+                    {
+                        string line = tmpArrStr[i];
+                        if (line.Length != 16)
+                            throw new FormatException($"Некорректный формат строки {i}: {line}");
+
+                        testset[i, 0] = double.Parse(line[0].ToString(), System.Globalization.CultureInfo.InvariantCulture);
+                        for (int j = 1; j < 16; j++)
+                        {
+                            testset[i, j] = double.Parse(line[j].ToString(), System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                    }
+                    // Перетасовка строк массива testset
+                    Shuffling_Array_Rows(testset);
                     break;
                 case NetworkMode.Recogn:
                     break;

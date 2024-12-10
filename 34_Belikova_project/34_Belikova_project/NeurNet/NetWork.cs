@@ -71,7 +71,7 @@ namespace _34_Belikova_project.NeurNet
 
             net.hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
             net.hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
-            net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv")
+            net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
         }
 
         //прямой проход сети
