@@ -48,54 +48,60 @@ namespace _34_Belikova_project
             string nameFileTrain; // имя файла обучающей выборки
 
             pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTrain = pathDir + "train.csv";
+            nameFileTrain = pathDir + "train.txt";
 
-            string[] tmpStr = new string[1]; // в неё заносим цифру нужную + кодировку цифры нарисованной
-            tmpStr[0] = value.ToString() + "; ";
-            for (int i = 0; i < 15; i++)
+            // Формируем строку, которая будет записана в файл
+            string tmpStr = value.ToString(); // Начинаем с значения
+            for (int i = 0; i < 15; i++) // Добавляем все элементы из массива input
             {
-                tmpStr[0] += input[i].ToString() + "; ";
+                tmpStr += " " + input[i].ToString(); // Разделяем пробелом
             }
+
+            // Проверяем существует ли файл и записываем данные
             if (File.Exists(nameFileTrain))
             {
                 using (StreamWriter writer = File.AppendText(nameFileTrain))
                 {
-                    writer.WriteLine(tmpStr[0]);
+                    writer.WriteLine(tmpStr); // Записываем строку
                 }
             }
             else
             {
                 using (StreamWriter writer = File.CreateText(nameFileTrain))
                 {
-                    writer.WriteLine(tmpStr[0]);
+                    writer.WriteLine(tmpStr); // Записываем строку
                 }
             }
         }
 
         private void SaveTest(decimal value, double[] input)
         {
-            string pathDir;//путь к exe
-            string nameFileTrain;//имя файла
+            string pathDir; // путь к exe
+            string nameFileTest; // имя файла
+
             pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTrain = pathDir + "test.csv";
-            string[] tmpStr = new string[1]; // в неё заносим цифру нужную + кодировку цифры нарисованной
-            tmpStr[0] = value.ToString() + "; ";
-            for (int i = 0; i < 15; i++)
+            nameFileTest = pathDir + "test.txt"; // Измените имя файла на .txt
+
+            // Формируем строку, которая будет записана в файл
+            string tmpStr = value.ToString(); // Начинаем с значения
+            for (int i = 0; i < 15; i++) // Добавляем все элементы из массива input
             {
-                tmpStr[0] += input[i].ToString() + "; ";
+                tmpStr += " " + input[i].ToString(); // Разделяем пробелом
             }
-            if (File.Exists(nameFileTrain))
+
+            // Проверяем существует ли файл и записываем данные
+            if (File.Exists(nameFileTest))
             {
-                using (StreamWriter writer = File.AppendText(nameFileTrain))
+                using (StreamWriter writer = File.AppendText(nameFileTest))
                 {
-                    writer.WriteLine(tmpStr[0]);
+                    writer.WriteLine(tmpStr); // Записываем строку
                 }
             }
             else
             {
-                using (StreamWriter writer = File.CreateText(nameFileTrain))
+                using (StreamWriter writer = File.CreateText(nameFileTest))
                 {
-                    writer.WriteLine(tmpStr[0]);
+                    writer.WriteLine(tmpStr); // Записываем строку
                 }
             }
         }
