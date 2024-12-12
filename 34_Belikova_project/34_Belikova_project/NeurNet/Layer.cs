@@ -11,8 +11,8 @@ namespace _34_Belikova_project.NeurNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurouns;
-        protected const double learningrate = 0.01d;
-        protected const double momentum = 0.5d;
+        protected const double learningrate = 0.005d;
+        protected const double momentum = 0.05d;
         protected double[,] lastdeltaweights;
         protected Neuron[] neurons;
 
