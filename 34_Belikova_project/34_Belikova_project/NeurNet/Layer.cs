@@ -11,8 +11,8 @@ namespace _34_Belikova_project.NeurNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurouns;
-        protected const double learningrate =0.005d;
-        protected const double momentum = 0.05d;
+        protected const double learningrate = 0.01d;
+        protected const double momentum = 0.5d;
         protected double[,] lastdeltaweights;
         protected Neuron[] neurons;
 
@@ -44,11 +44,11 @@ namespace _34_Belikova_project.NeurNet
             double[,] Weights;
 
             if (File.Exists(pathFileWeights))
-                Weights = WeightInitialize(MemoryMode.GET);
+                Weights = WeightInitialize(MemoryMode.GET, pathFileWeights);
             else
             {
                 Directory.CreateDirectory(pathDirWeights);
-                Weights = WeightInitialize(MemoryMode.INIT);
+                Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
             }
 
             lastdeltaweights = new double[non, nopn + 1];
@@ -65,84 +65,95 @@ namespace _34_Belikova_project.NeurNet
         }
 
         //метод для работы с массивом синаптических весов слоя
-        public double[,] WeightInitialize(MemoryMode mm)
+        public double[,] WeightInitialize(MemoryMode mm, string path)
         {
             char[] delim = new char[] { ';', ' ' };
             string tmpStr;
             string[] tmpStrWeights;
-            double[,] weights = new double[numofneurons, numofprevneurouns + 1];
+            double[,] weigths = new double[numofneurons, numofprevneurouns + 1];
 
             switch (mm)
             {
                 case MemoryMode.GET:
-                    tmpStrWeights = File.ReadAllLines(pathFileWeights);
+                    tmpStrWeights = File.ReadAllLines(path);
                     string[] memory_elemet;
                     for(int i = 0; i < numofneurons; i++)
                     {
                         memory_elemet = tmpStrWeights[i].Split(delim);
                         for(int j = 0; j < numofprevneurouns + 1; j++)
                         {
-                            weights[i, j] = double.Parse(memory_elemet[j].Replace(',', '.'),System.Globalization.CultureInfo.InvariantCulture);
+                            weigths[i, j] = double.Parse(memory_elemet[j].Replace(',', '.'),System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
                     break;
+
                 case MemoryMode.SET:
-                    using (StreamWriter writer = new StreamWriter(pathFileWeights))
+                    tmpStrWeights = new string[numofneurons];
+
+                    for (int i = 0; i < numofneurons; i++)
                     {
-                        for (int i = 0; i < numofneurons; i++)
+                        tmpStr = Neurons[i].Weights[0].ToString();
+                        for (int j = 1; j < numofprevneurouns + 1; j++)
                         {
-                            for (int j = 0; j < numofprevneurouns + 1; j++)
-                            {
-                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + ";");
-                            }
-                            writer.WriteLine();
+                            tmpStr += delim[0] + Neurons[i].Weights[j].ToString();
                         }
+                        tmpStrWeights[i] = tmpStr;
                     }
+                    File.WriteAllLines(pathFileWeights, tmpStrWeights);
                     break;
+
                 case MemoryMode.INIT:
-                    double sum = 0;
-                    double sumSquared = 0;
-                    Random random = new Random();
+                    Random rand = new Random();
 
-                    // Шаг 1: Генерация весов от -1 до 1 и рассчет суммы и суммы квадратов для нормализации
+                    tmpStrWeights = new string[numofneurons];
+
+                    // инициализация весов:
+                    // 1. веса инициализируются случайными величинами
+                    // 2. мат ожидание всех весов нейрона должно равняться 0
+                    // 3. среднее квадратическое значение должно равняться 1
+
+                    // Инициализация весов для логистической функции (сигмоиды) с Xavier инициализацией
+                    // Формула: w_i ~ N(0, 2 / (n_in + n_out)), где n_in — количество входных нейронов, n_out — количество выходных нейронов
+
+                    double variance = 2.0 / (numofprevneurouns + numofneurons);  // Вычисляем дисперсию
+
+
                     for (int i = 0; i < numofneurons; i++)
                     {
-                        for (int j = 0; j < numofprevneurouns + 1; j++)
+                        double sum = 0;
+                        // Инициализируем веса случайными значениями, следуя Xavier инициализации
+                        for (int j = 0; j < numofprevneurouns + 1; j++) // +1 для учета смещения (bias)
                         {
-                            weights[i, j] = 2 * random.NextDouble() - 1; // диапазон от -1 до 1
-                            sum += weights[i, j];
-                            sumSquared += weights[i, j] * weights[i, j];
+                            weigths[i, j] = rand.NextDouble() * Math.Sqrt(variance);
+                            sum += weigths[i, j];
                         }
-                    }
 
-                    // Шаг 2: Расчет среднего и стандартного отклонения
-                    double mean = sum / (numofneurons * (numofprevneurouns + 1));
-                    double variance = (sumSquared / (numofneurons * (numofprevneurouns + 1))) - (mean * mean);
-                    double stdDev = Math.Sqrt(variance);
+                        // Нормализуем веса, если нужно
+                        double mean = sum / (numofprevneurouns + 1);
+                        sum = 0;
 
-                    // Шаг 3: Нормализация весов для соблюдения условий
-                    for (int i = 0; i < numofneurons; i++)
-                    {
+                        // Вычисляем среднее квадратическое отклонение
                         for (int j = 0; j < numofprevneurouns + 1; j++)
+                            sum += Math.Pow(weigths[i, j] - mean, 2);
+
+                        double std = Math.Sqrt(sum / (numofprevneurouns + 1));
+
+                        // Нормализуем веса для поддержания нужной дисперсии
+                        for (int j = 0; j < numofprevneurouns + 1; j++)
+                            weigths[i, j] = (weigths[i, j] - mean) / std;
+
+                        tmpStr = weigths[i, 0].ToString();
+                        for (int j = 1; j < numofprevneurouns + 1; j++)
                         {
-                            // Корректируем вес, чтобы среднее значение стало 0, а стандартное отклонение — 1
-                            weights[i, j] = (weights[i, j] - mean) / stdDev;
+                            tmpStr += delim[0] + weigths[i, j].ToString();
                         }
+                        tmpStrWeights[i] = tmpStr;
+
                     }
-                    using (StreamWriter writer = new StreamWriter(pathFileWeights))
-                    {
-                        for (int i = 0; i < numofneurons; i++)
-                        {
-                            for (int j = 0; j < numofprevneurouns + 1; j++)
-                            {
-                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + ",");
-                            }
-                            writer.WriteLine(); // Перевод строки после каждого нейрона
-                        }
-                    }
+                    File.WriteAllLines(pathFileWeights, tmpStrWeights);
                     break;
             }
-            return weights;
+            return weigths;
         }
 
         //для прямых проходов

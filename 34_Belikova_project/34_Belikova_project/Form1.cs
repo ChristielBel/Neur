@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
@@ -37,48 +42,62 @@ namespace _34_Belikova_project
         }
 
 
-        private void SaveTrain(decimal vale, double[] input)
+        private void SaveTrain(decimal value, double[] input)
         {
             string pathDir; // каталог с обучающими данными
             string nameFileTrain; // имя файла обучающей выборки
 
             pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTrain = pathDir + "train.txt";
+            nameFileTrain = pathDir + "train.csv";
 
-            string[] tmpStr = new string[1];
-            tmpStr[0] = vale.ToString();
+            string[] tmpStr = new string[1]; // в неё заносим цифру нужную + кодировку цифры нарисованной
+            tmpStr[0] = value.ToString() + "; ";
             for (int i = 0; i < 15; i++)
             {
-                tmpStr[0] += input[i].ToString();
+                tmpStr[0] += input[i].ToString() + "; ";
             }
-
             if (File.Exists(nameFileTrain))
             {
-                File.AppendAllLines(nameFileTrain, tmpStr);
+                using (StreamWriter writer = File.AppendText(nameFileTrain))
+                {
+                    writer.WriteLine(tmpStr[0]);
+                }
             }
-
+            else
+            {
+                using (StreamWriter writer = File.CreateText(nameFileTrain))
+                {
+                    writer.WriteLine(tmpStr[0]);
+                }
+            }
         }
 
-        private void SaveTest(decimal vale, double[] input)
+        private void SaveTest(decimal value, double[] input)
         {
-            string pathDir;
-            string nameFileTest;
-
+            string pathDir;//путь к exe
+            string nameFileTrain;//имя файла
             pathDir = AppDomain.CurrentDomain.BaseDirectory;
-            nameFileTest = pathDir + "test.txt";
-
-            string[] tmpStr = new string[1];
-            tmpStr[0] = vale.ToString();
+            nameFileTrain = pathDir + "test.csv";
+            string[] tmpStr = new string[1]; // в неё заносим цифру нужную + кодировку цифры нарисованной
+            tmpStr[0] = value.ToString() + "; ";
             for (int i = 0; i < 15; i++)
             {
-                tmpStr[0] += input[i].ToString();
+                tmpStr[0] += input[i].ToString() + "; ";
             }
-
-            if (File.Exists(nameFileTest))
+            if (File.Exists(nameFileTrain))
             {
-                File.AppendAllLines(nameFileTest, tmpStr);
+                using (StreamWriter writer = File.AppendText(nameFileTrain))
+                {
+                    writer.WriteLine(tmpStr[0]);
+                }
             }
-
+            else
+            {
+                using (StreamWriter writer = File.CreateText(nameFileTrain))
+                {
+                    writer.WriteLine(tmpStr[0]);
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -184,7 +203,7 @@ namespace _34_Belikova_project
         private void buttonTest_Click(object sender, EventArgs e)
         {
             net.Test(net);
-            for(int i = 0; i < net.E_error_avr.Length; i++)
+            for (int i = 0; i < net.E_error_avr.Length; i++)
             {
                 chartEavr.Series[0].Points.AddY(net.E_error_avr[i]);
             }

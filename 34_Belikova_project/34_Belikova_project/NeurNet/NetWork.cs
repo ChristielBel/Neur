@@ -20,6 +20,8 @@ namespace _34_Belikova_project.NeurNet
             set => e_error_avr = value;
         }
 
+        public double[] Fact { get => fact; }
+
         public NetWork()
         {
 
@@ -61,7 +63,6 @@ namespace _34_Belikova_project.NeurNet
                     }
                     e_error_avr[k] += tmpSumError / errors.Length;
 
-
                     temp_gsums2 = net.output_layer.BackwardPass(errors);
                     temp_gsums1 = net.hidden_layer2.BackwardPass(temp_gsums2);
                     net.hidden_layer1.BackwardPass(temp_gsums1);
@@ -71,9 +72,9 @@ namespace _34_Belikova_project.NeurNet
 
             net.input_layer = null;
 
-            net.hidden_layer1.WeightInitialize(MemoryMode.SET);
-            net.hidden_layer2.WeightInitialize(MemoryMode.SET);
-            net.output_layer.WeightInitialize(MemoryMode.SET);
+            net.hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
+            net.hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
+            net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
         }
 
         public void Test(NetWork net)

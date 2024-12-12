@@ -31,16 +31,12 @@ namespace _34_Belikova_project.NeurNet
                     for (int i = 0; i < tmpArrStr.Length; i++)
                     {
                         string line = tmpArrStr[i];
-                        if (line.Length != 16) // Проверка на корректность длины строки
-                            throw new FormatException($"Некорректный формат строки {i}: {line}");
+                        string[] values = line.Split(' '); // Разделяем строку по пробелам
 
-                        // Сохраняем желаемый отклик
-                        trainset[i, 0] = double.Parse(line[0].ToString(), System.Globalization.CultureInfo.InvariantCulture);
-
-                        // Сохраняем пиксели
-                        for (int j = 1; j < 16; j++)
+                        // Преобразуем и сохраняем значения
+                        for (int j = 0; j < 16; j++)
                         {
-                            trainset[i, j] = double.Parse(line[j].ToString(), System.Globalization.CultureInfo.InvariantCulture);
+                            trainset[i, j] = double.Parse(values[j], System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
                     //метод перетасовки Фишера-Йетса
@@ -51,16 +47,14 @@ namespace _34_Belikova_project.NeurNet
                     for (int i = 0; i < tmpArrStr.Length; i++)
                     {
                         string line = tmpArrStr[i];
-                        if (line.Length != 16)
-                            throw new FormatException($"Некорректный формат строки {i}: {line}");
+                        string[] values = line.Split(' '); // Разделяем строку по пробелам
 
-                        testset[i, 0] = double.Parse(line[0].ToString(), System.Globalization.CultureInfo.InvariantCulture);
-                        for (int j = 1; j < 16; j++)
+                        // Преобразуем и сохраняем значения
+                        for (int j = 0; j < 16; j++)
                         {
-                            testset[i, j] = double.Parse(line[j].ToString(), System.Globalization.CultureInfo.InvariantCulture);
+                            testset[i, j] = double.Parse(values[j], System.Globalization.CultureInfo.InvariantCulture);
                         }
                     }
-                    // Перетасовка строк массива testset
                     Shuffling_Array_Rows(testset);
                     break;
                 case NetworkMode.Recogn:

@@ -322,11 +322,14 @@ namespace _34_Belikova_project
             // labelProbability
             // 
             this.labelProbability.AutoSize = true;
-            this.labelProbability.Location = new System.Drawing.Point(260, 48);
+            this.labelProbability.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.labelProbability.Location = new System.Drawing.Point(233, 30);
             this.labelProbability.Name = "labelProbability";
-            this.labelProbability.Size = new System.Drawing.Size(35, 13);
+            this.labelProbability.Size = new System.Drawing.Size(103, 38);
             this.labelProbability.TabIndex = 24;
             this.labelProbability.Text = "label1";
+            this.labelProbability.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelProbability.UseWaitCursor = true;
             // 
             // Form1
             // 

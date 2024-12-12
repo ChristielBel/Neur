@@ -49,7 +49,7 @@ namespace _34_Belikova_project.NeurNet
                         deltaw = momentum * lastdeltaweights[i, n] + learningrate * neurons[i].Inputs[n - 1] * errors[i];
 
                     lastdeltaweights[i, n] = deltaw;
-                    neurons[i].Weights[n] = deltaw;
+                    neurons[i].Weights[n] += deltaw;
                 }
             }
 
