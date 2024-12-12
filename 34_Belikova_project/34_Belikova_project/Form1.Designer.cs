@@ -55,6 +55,7 @@ namespace _34_Belikova_project
             this.buttonTest = new System.Windows.Forms.Button();
             this.buttonTrain = new System.Windows.Forms.Button();
             this.chartEavr = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.labelProbability = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEavr)).BeginInit();
             this.SuspendLayout();
@@ -318,11 +319,21 @@ namespace _34_Belikova_project
             title1.Text = "График средних энергий ошибок";
             this.chartEavr.Titles.Add(title1);
             // 
+            // labelProbability
+            // 
+            this.labelProbability.AutoSize = true;
+            this.labelProbability.Location = new System.Drawing.Point(260, 48);
+            this.labelProbability.Name = "labelProbability";
+            this.labelProbability.Size = new System.Drawing.Size(35, 13);
+            this.labelProbability.TabIndex = 24;
+            this.labelProbability.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 323);
+            this.Controls.Add(this.labelProbability);
             this.Controls.Add(this.chartEavr);
             this.Controls.Add(this.buttonTrain);
             this.Controls.Add(this.buttonTest);
@@ -380,6 +391,7 @@ namespace _34_Belikova_project
         private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.Button buttonTrain;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEavr;
+        private System.Windows.Forms.Label labelProbability;
     }
 }
 

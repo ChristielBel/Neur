@@ -27,7 +27,7 @@ namespace _34_Belikova_project.NeurNet
 
         public void Train(NetWork net)
         {
-            int epoches = 70; // кол-во эпох обучения(кол-во прогонов программы)
+            int epoches = 100; // кол-во эпох обучения(кол-во прогонов программы)
             net.input_layer = new InputLayer(NetworkMode.Train); //инициализация входного слоя
             double tmpSumError;// временная переменная суммы ошибок
             double[] errors;//вектор сигнала ошибки
@@ -61,17 +61,58 @@ namespace _34_Belikova_project.NeurNet
                     }
                     e_error_avr[k] += tmpSumError / errors.Length;
 
+
                     temp_gsums2 = net.output_layer.BackwardPass(errors);
                     temp_gsums1 = net.hidden_layer2.BackwardPass(temp_gsums2);
+                    net.hidden_layer1.BackwardPass(temp_gsums1);
                 }
                 e_error_avr[k] /= net.input_layer.Trainset.GetLength(0);
             }
 
             net.input_layer = null;
 
-            net.hidden_layer1.WeightInitialize(MemoryMode.SET, nameof(hidden_layer1) + "_memory.csv");
-            net.hidden_layer2.WeightInitialize(MemoryMode.SET, nameof(hidden_layer2) + "_memory.csv");
-            net.output_layer.WeightInitialize(MemoryMode.SET, nameof(output_layer) + "_memory.csv");
+            net.hidden_layer1.WeightInitialize(MemoryMode.SET);
+            net.hidden_layer2.WeightInitialize(MemoryMode.SET);
+            net.output_layer.WeightInitialize(MemoryMode.SET);
+        }
+
+        public void Test(NetWork net)
+        {
+            int epoches = 3; // кол-во эпох обучения(кол-во прогонов программы)
+            net.input_layer = new InputLayer(NetworkMode.Test); //инициализация входного слоя
+            double tmpSumError;// временная переменная суммы ошибок
+            double[] errors;//вектор сигнала ошибки
+
+            e_error_avr = new double[epoches];
+
+            for (int k = 0; k < epoches; k++)
+            {
+                e_error_avr[k] = 0;
+                net.input_layer.Shuffling_Array_Rows(net.input_layer.Testset);
+                for (int i = 0; i < net.input_layer.Testset.GetLength(0); i++)
+                {
+                    double[] tmpTest = new double[15];
+                    for (int j = 0; j < tmpTest.Length; j++)
+                        tmpTest[j] = net.input_layer.Testset[i, j + 1];
+
+                    ForwardPass(net, tmpTest);
+
+                    tmpSumError = 0;
+                    errors = new double[net.fact.Length];
+                    for (int x = 0; x < errors.Length; x++)
+                    {
+                        if (x == net.input_layer.Testset[i, 0])
+                            errors[x] = 1.0 - net.fact[x];
+                        else
+                            errors[x] = -net.fact[x];
+
+                        tmpSumError += errors[x] * errors[x] / 2;
+                    }
+                    e_error_avr[k] += tmpSumError / errors.Length;
+                }
+                e_error_avr[k] /= net.input_layer.Testset.GetLength(0);
+            }
+            net.input_layer = null;
         }
 
         //прямой проход сети

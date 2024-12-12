@@ -156,6 +156,7 @@ namespace _34_Belikova_project
         {
             net.ForwardPass(net, inputPixels);
             labelAnswer.Text = net.fact.ToList().IndexOf(net.fact.Max()).ToString();
+            labelProbability.Text = (100 * net.fact.Max()).ToString("0.00") + "%";
         }
 
         private void buttonSaveTrainSample_Click(object sender, EventArgs e)
@@ -182,7 +183,12 @@ namespace _34_Belikova_project
         //тестировать
         private void buttonTest_Click(object sender, EventArgs e)
         {
-
+            net.Test(net);
+            for(int i = 0; i < net.E_error_avr.Length; i++)
+            {
+                chartEavr.Series[0].Points.AddY(net.E_error_avr[i]);
+            }
+            MessageBox.Show("Тестирование успешно завершено.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }

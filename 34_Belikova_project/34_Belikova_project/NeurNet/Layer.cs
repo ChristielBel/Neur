@@ -11,7 +11,7 @@ namespace _34_Belikova_project.NeurNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurouns;
-        protected const double learningrate = 0.005d;
+        protected const double learningrate =0.005d;
         protected const double momentum = 0.05d;
         protected double[,] lastdeltaweights;
         protected Neuron[] neurons;
@@ -44,11 +44,11 @@ namespace _34_Belikova_project.NeurNet
             double[,] Weights;
 
             if (File.Exists(pathFileWeights))
-                Weights = WeightInitialize(MemoryMode.GET, pathFileWeights);
+                Weights = WeightInitialize(MemoryMode.GET);
             else
             {
                 Directory.CreateDirectory(pathDirWeights);
-                Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
+                Weights = WeightInitialize(MemoryMode.INIT);
             }
 
             lastdeltaweights = new double[non, nopn + 1];
@@ -65,7 +65,7 @@ namespace _34_Belikova_project.NeurNet
         }
 
         //метод для работы с массивом синаптических весов слоя
-        public double[,] WeightInitialize(MemoryMode mm, string path)
+        public double[,] WeightInitialize(MemoryMode mm)
         {
             char[] delim = new char[] { ';', ' ' };
             string tmpStr;
@@ -75,7 +75,7 @@ namespace _34_Belikova_project.NeurNet
             switch (mm)
             {
                 case MemoryMode.GET:
-                    tmpStrWeights = File.ReadAllLines(path);
+                    tmpStrWeights = File.ReadAllLines(pathFileWeights);
                     string[] memory_elemet;
                     for(int i = 0; i < numofneurons; i++)
                     {
@@ -87,7 +87,7 @@ namespace _34_Belikova_project.NeurNet
                     }
                     break;
                 case MemoryMode.SET:
-                    using (StreamWriter writer = new StreamWriter(path))
+                    using (StreamWriter writer = new StreamWriter(pathFileWeights))
                     {
                         for (int i = 0; i < numofneurons; i++)
                         {
@@ -129,13 +129,13 @@ namespace _34_Belikova_project.NeurNet
                             weights[i, j] = (weights[i, j] - mean) / stdDev;
                         }
                     }
-                    using (StreamWriter writer = new StreamWriter("weights_output.txt"))
+                    using (StreamWriter writer = new StreamWriter(pathFileWeights))
                     {
                         for (int i = 0; i < numofneurons; i++)
                         {
                             for (int j = 0; j < numofprevneurouns + 1; j++)
                             {
-                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + "\t");
+                                writer.Write(weights[i, j].ToString(System.Globalization.CultureInfo.InvariantCulture) + ",");
                             }
                             writer.WriteLine(); // Перевод строки после каждого нейрона
                         }
