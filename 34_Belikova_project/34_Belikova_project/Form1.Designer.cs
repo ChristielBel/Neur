@@ -32,7 +32,6 @@ namespace _34_Belikova_project
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -55,29 +54,29 @@ namespace _34_Belikova_project
             this.buttonTest = new System.Windows.Forms.Button();
             this.buttonTrain = new System.Windows.Forms.Button();
             this.chartEavr = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label0 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.labelProbability = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTrue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartEavr)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(21, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(57, 83);
+            this.button2.Location = new System.Drawing.Point(103, 111);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 30);
+            this.button2.Size = new System.Drawing.Size(60, 60);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -86,9 +85,9 @@ namespace _34_Belikova_project
             // 
             this.button3.BackColor = System.Drawing.Color.White;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(93, 83);
+            this.button3.Location = new System.Drawing.Point(161, 111);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 30);
+            this.button3.Size = new System.Drawing.Size(60, 60);
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -97,9 +96,9 @@ namespace _34_Belikova_project
             // 
             this.button4.BackColor = System.Drawing.Color.White;
             this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(21, 119);
+            this.button4.Location = new System.Drawing.Point(45, 169);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(30, 30);
+            this.button4.Size = new System.Drawing.Size(60, 60);
             this.button4.TabIndex = 3;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -108,9 +107,9 @@ namespace _34_Belikova_project
             // 
             this.button5.BackColor = System.Drawing.Color.White;
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(57, 119);
+            this.button5.Location = new System.Drawing.Point(103, 169);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 30);
+            this.button5.Size = new System.Drawing.Size(60, 60);
             this.button5.TabIndex = 4;
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
@@ -119,9 +118,9 @@ namespace _34_Belikova_project
             // 
             this.button6.BackColor = System.Drawing.Color.White;
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(93, 119);
+            this.button6.Location = new System.Drawing.Point(161, 169);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(30, 30);
+            this.button6.Size = new System.Drawing.Size(60, 60);
             this.button6.TabIndex = 5;
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -130,9 +129,9 @@ namespace _34_Belikova_project
             // 
             this.button7.BackColor = System.Drawing.Color.White;
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(21, 155);
+            this.button7.Location = new System.Drawing.Point(45, 227);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(30, 30);
+            this.button7.Size = new System.Drawing.Size(60, 60);
             this.button7.TabIndex = 6;
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -141,9 +140,9 @@ namespace _34_Belikova_project
             // 
             this.button8.BackColor = System.Drawing.Color.White;
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(57, 155);
+            this.button8.Location = new System.Drawing.Point(103, 227);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(30, 30);
+            this.button8.Size = new System.Drawing.Size(60, 60);
             this.button8.TabIndex = 7;
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -152,9 +151,9 @@ namespace _34_Belikova_project
             // 
             this.button9.BackColor = System.Drawing.Color.White;
             this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Location = new System.Drawing.Point(93, 155);
+            this.button9.Location = new System.Drawing.Point(161, 227);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(30, 30);
+            this.button9.Size = new System.Drawing.Size(60, 60);
             this.button9.TabIndex = 8;
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
@@ -163,9 +162,9 @@ namespace _34_Belikova_project
             // 
             this.button10.BackColor = System.Drawing.Color.White;
             this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Location = new System.Drawing.Point(21, 191);
+            this.button10.Location = new System.Drawing.Point(45, 285);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(30, 30);
+            this.button10.Size = new System.Drawing.Size(60, 60);
             this.button10.TabIndex = 9;
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
@@ -174,9 +173,9 @@ namespace _34_Belikova_project
             // 
             this.button11.BackColor = System.Drawing.Color.White;
             this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button11.Location = new System.Drawing.Point(57, 191);
+            this.button11.Location = new System.Drawing.Point(103, 285);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(30, 30);
+            this.button11.Size = new System.Drawing.Size(60, 60);
             this.button11.TabIndex = 10;
             this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
@@ -185,9 +184,9 @@ namespace _34_Belikova_project
             // 
             this.button12.BackColor = System.Drawing.Color.White;
             this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Location = new System.Drawing.Point(93, 191);
+            this.button12.Location = new System.Drawing.Point(161, 285);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(30, 30);
+            this.button12.Size = new System.Drawing.Size(60, 60);
             this.button12.TabIndex = 11;
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
@@ -196,9 +195,9 @@ namespace _34_Belikova_project
             // 
             this.button13.BackColor = System.Drawing.Color.White;
             this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button13.Location = new System.Drawing.Point(21, 227);
+            this.button13.Location = new System.Drawing.Point(45, 343);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(30, 30);
+            this.button13.Size = new System.Drawing.Size(60, 60);
             this.button13.TabIndex = 12;
             this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
@@ -207,9 +206,9 @@ namespace _34_Belikova_project
             // 
             this.button14.BackColor = System.Drawing.Color.White;
             this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button14.Location = new System.Drawing.Point(57, 227);
+            this.button14.Location = new System.Drawing.Point(103, 343);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(30, 30);
+            this.button14.Size = new System.Drawing.Size(60, 60);
             this.button14.TabIndex = 13;
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
@@ -218,9 +217,9 @@ namespace _34_Belikova_project
             // 
             this.button15.BackColor = System.Drawing.Color.White;
             this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button15.Location = new System.Drawing.Point(93, 227);
+            this.button15.Location = new System.Drawing.Point(161, 343);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(30, 30);
+            this.button15.Size = new System.Drawing.Size(60, 60);
             this.button15.TabIndex = 14;
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
@@ -228,9 +227,9 @@ namespace _34_Belikova_project
             // button16
             // 
             this.button16.BackColor = System.Drawing.Color.White;
-            this.button16.Location = new System.Drawing.Point(145, 83);
+            this.button16.Location = new System.Drawing.Point(147, 515);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(102, 30);
+            this.button16.Size = new System.Drawing.Size(100, 40);
             this.button16.TabIndex = 15;
             this.button16.Text = "Recognize";
             this.button16.UseVisualStyleBackColor = false;
@@ -238,73 +237,78 @@ namespace _34_Belikova_project
             // 
             // numericUpDownTrue
             // 
-            this.numericUpDownTrue.Location = new System.Drawing.Point(145, 198);
+            this.numericUpDownTrue.Location = new System.Drawing.Point(25, 435);
             this.numericUpDownTrue.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.numericUpDownTrue.Name = "numericUpDownTrue";
-            this.numericUpDownTrue.Size = new System.Drawing.Size(102, 20);
+            this.numericUpDownTrue.Size = new System.Drawing.Size(100, 20);
             this.numericUpDownTrue.TabIndex = 17;
             // 
             // buttonSaveTrainSample
             // 
-            this.buttonSaveTrainSample.Location = new System.Drawing.Point(145, 274);
+            this.buttonSaveTrainSample.BackColor = System.Drawing.Color.White;
+            this.buttonSaveTrainSample.Location = new System.Drawing.Point(25, 469);
             this.buttonSaveTrainSample.Name = "buttonSaveTrainSample";
-            this.buttonSaveTrainSample.Size = new System.Drawing.Size(150, 23);
+            this.buttonSaveTrainSample.Size = new System.Drawing.Size(100, 40);
             this.buttonSaveTrainSample.TabIndex = 18;
             this.buttonSaveTrainSample.Text = "Save trainig example";
-            this.buttonSaveTrainSample.UseVisualStyleBackColor = true;
+            this.buttonSaveTrainSample.UseVisualStyleBackColor = false;
             this.buttonSaveTrainSample.Click += new System.EventHandler(this.buttonSaveTrainSample_Click);
             // 
             // buttonSaveTestSample
             // 
-            this.buttonSaveTestSample.Location = new System.Drawing.Point(145, 234);
+            this.buttonSaveTestSample.BackColor = System.Drawing.Color.White;
+            this.buttonSaveTestSample.Location = new System.Drawing.Point(25, 515);
             this.buttonSaveTestSample.Name = "buttonSaveTestSample";
-            this.buttonSaveTestSample.Size = new System.Drawing.Size(150, 23);
+            this.buttonSaveTestSample.Size = new System.Drawing.Size(100, 40);
             this.buttonSaveTestSample.TabIndex = 19;
             this.buttonSaveTestSample.Text = "Save test example";
-            this.buttonSaveTestSample.UseVisualStyleBackColor = true;
+            this.buttonSaveTestSample.UseVisualStyleBackColor = false;
             this.buttonSaveTestSample.Click += new System.EventHandler(this.buttonSaveTestSample_Click);
             // 
             // labelAnswer
             // 
             this.labelAnswer.AutoSize = true;
+            this.labelAnswer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.labelAnswer.Location = new System.Drawing.Point(12, 30);
+            this.labelAnswer.Location = new System.Drawing.Point(72, 9);
             this.labelAnswer.Name = "labelAnswer";
-            this.labelAnswer.Size = new System.Drawing.Size(195, 38);
+            this.labelAnswer.Size = new System.Drawing.Size(129, 40);
             this.labelAnswer.TabIndex = 20;
-            this.labelAnswer.Text = "labelAnswer";
+            this.labelAnswer.Text = "Answer";
             this.labelAnswer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelAnswer.UseWaitCursor = true;
             // 
             // buttonTest
             // 
-            this.buttonTest.Location = new System.Drawing.Point(145, 155);
+            this.buttonTest.BackColor = System.Drawing.Color.White;
+            this.buttonTest.Location = new System.Drawing.Point(147, 469);
             this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(75, 23);
+            this.buttonTest.Size = new System.Drawing.Size(100, 40);
             this.buttonTest.TabIndex = 21;
             this.buttonTest.Text = "Test";
-            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.UseVisualStyleBackColor = false;
             this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
             // 
             // buttonTrain
             // 
-            this.buttonTrain.Location = new System.Drawing.Point(145, 119);
+            this.buttonTrain.BackColor = System.Drawing.Color.White;
+            this.buttonTrain.Location = new System.Drawing.Point(147, 423);
             this.buttonTrain.Name = "buttonTrain";
-            this.buttonTrain.Size = new System.Drawing.Size(75, 23);
+            this.buttonTrain.Size = new System.Drawing.Size(100, 40);
             this.buttonTrain.TabIndex = 22;
             this.buttonTrain.Text = "Train";
-            this.buttonTrain.UseVisualStyleBackColor = true;
+            this.buttonTrain.UseVisualStyleBackColor = false;
             this.buttonTrain.Click += new System.EventHandler(this.buttonTrain_Click);
             // 
             // chartEavr
             // 
             chartArea1.Name = "ChartArea1";
             this.chartEavr.ChartAreas.Add(chartArea1);
-            this.chartEavr.Location = new System.Drawing.Point(357, 12);
+            this.chartEavr.Location = new System.Drawing.Point(271, 237);
             this.chartEavr.Name = "chartEavr";
             series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
@@ -319,15 +323,157 @@ namespace _34_Belikova_project
             title1.Text = "График средних энергий ошибок";
             this.chartEavr.Titles.Add(title1);
             // 
+            // label0
+            // 
+            this.label0.AutoSize = true;
+            this.label0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label0.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label0.Location = new System.Drawing.Point(298, 12);
+            this.label0.Name = "label0";
+            this.label0.Size = new System.Drawing.Size(37, 40);
+            this.label0.TabIndex = 24;
+            this.label0.Text = "0";
+            this.label0.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label0.UseWaitCursor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(45, 111);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 60);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label1.Location = new System.Drawing.Point(298, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 40);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.UseWaitCursor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label2.Location = new System.Drawing.Point(298, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 40);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "2";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.UseWaitCursor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label3.Location = new System.Drawing.Point(298, 132);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 40);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "3";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.UseWaitCursor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label4.Location = new System.Drawing.Point(298, 172);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 40);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.UseWaitCursor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label9.Location = new System.Drawing.Point(533, 172);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 40);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "9";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label9.UseWaitCursor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label8.Location = new System.Drawing.Point(533, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 40);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "8";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label8.UseWaitCursor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label7.Location = new System.Drawing.Point(533, 92);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 40);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "7";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label7.UseWaitCursor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label6.Location = new System.Drawing.Point(533, 52);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 40);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "6";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label6.UseWaitCursor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.label5.Location = new System.Drawing.Point(533, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 40);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "5";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.UseWaitCursor = true;
+            // 
             // labelProbability
             // 
             this.labelProbability.AutoSize = true;
+            this.labelProbability.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelProbability.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.labelProbability.Location = new System.Drawing.Point(233, 30);
+            this.labelProbability.Location = new System.Drawing.Point(25, 57);
             this.labelProbability.Name = "labelProbability";
-            this.labelProbability.Size = new System.Drawing.Size(103, 38);
-            this.labelProbability.TabIndex = 24;
-            this.labelProbability.Text = "label1";
+            this.labelProbability.Size = new System.Drawing.Size(90, 40);
+            this.labelProbability.TabIndex = 34;
+            this.labelProbability.Text = "MAX";
             this.labelProbability.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelProbability.UseWaitCursor = true;
             // 
@@ -335,8 +481,18 @@ namespace _34_Belikova_project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 323);
+            this.ClientSize = new System.Drawing.Size(726, 570);
             this.Controls.Add(this.labelProbability);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label0);
             this.Controls.Add(this.chartEavr);
             this.Controls.Add(this.buttonTrain);
             this.Controls.Add(this.buttonTest);
@@ -370,8 +526,6 @@ namespace _34_Belikova_project
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -394,6 +548,17 @@ namespace _34_Belikova_project
         private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.Button buttonTrain;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEavr;
+        private System.Windows.Forms.Label label0;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelProbability;
     }
 }

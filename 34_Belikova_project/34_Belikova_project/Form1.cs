@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection.Emit;
 
 namespace _34_Belikova_project
 {
@@ -16,7 +17,6 @@ namespace _34_Belikova_project
         private double[] inputPixels;
 
         private NeurNet.NetWork net;
-
    
         public Form1()
         {
@@ -25,7 +25,6 @@ namespace _34_Belikova_project
             inputPixels = new double[15];
             net = new NeurNet.NetWork();
         }
-
 
         private void ChangeState(Button b, int index)
         {
@@ -40,7 +39,6 @@ namespace _34_Belikova_project
                 inputPixels[index] = 0;
             }
         }
-
 
         private void SaveTrain(decimal value, double[] input)
         {
@@ -181,14 +179,32 @@ namespace _34_Belikova_project
         {
             net.ForwardPass(net, inputPixels);
             labelAnswer.Text = net.fact.ToList().IndexOf(net.fact.Max()).ToString();
-            labelProbability.Text = (100 * net.fact.Max()).ToString("0.00") + "%";
+
+            int predictedDigit = net.fact.ToList().IndexOf(net.fact.Max());
+
+            // Отобразить вероятности для каждой цифры в 10 лейблах
+            label0.Text = $"0: {(net.fact[0] * 100).ToString("0.00")}%";
+            label1.Text = $"1: {(net.fact[1] * 100).ToString("0.00")}%";
+            label2.Text = $"2: {(net.fact[2] * 100).ToString("0.00")}%";
+            label3.Text = $"3: {(net.fact[3] * 100).ToString("0.00")}%";
+            label4.Text = $"4: {(net.fact[4] * 100).ToString("0.00")}%";
+            label5.Text = $"5: {(net.fact[5] * 100).ToString("0.00")}%";
+            label6.Text = $"6: {(net.fact[6] * 100).ToString("0.00")}%";
+            label7.Text = $"7: {(net.fact[7] * 100).ToString("0.00")}%";
+            label8.Text = $"8: {(net.fact[8] * 100).ToString("0.00")}%";
+            label9.Text = $"9: {(net.fact[9] * 100).ToString("0.00")}%";
+
+            // Также можно добавить подсветку максимальной вероятности
+            labelProbability.Text = $"Max: {(net.fact.Max() * 100).ToString("0.00")}%";
         }
 
+        // сохранить обучающий пример
         private void buttonSaveTrainSample_Click(object sender, EventArgs e)
         {
             SaveTrain(numericUpDownTrue.Value, inputPixels);
         }
 
+        // сохранить тестовый пример
         private void buttonSaveTestSample_Click(object sender, EventArgs e)
         {
             SaveTest(numericUpDownTrue.Value, inputPixels);
@@ -215,6 +231,5 @@ namespace _34_Belikova_project
             }
             MessageBox.Show("Тестирование успешно завершено.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
     }
 }

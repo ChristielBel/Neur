@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace _34_Belikova_project.NeurNet
 {
@@ -11,8 +12,8 @@ namespace _34_Belikova_project.NeurNet
         string pathFileWeights;
         protected int numofneurons;
         protected int numofprevneurouns;
-        protected const double learningrate = 0.1d;
-        protected const double momentum = 0.0005d;
+        protected const double learningrate = 0.02d;
+        protected const double momentum = 0.5d;
         protected double[,] lastdeltaweights;
         protected Neuron[] neurons;
 
@@ -48,6 +49,7 @@ namespace _34_Belikova_project.NeurNet
             else
             {
                 Directory.CreateDirectory(pathDirWeights);
+                File.Create(pathFileWeights).Close();
                 Weights = WeightInitialize(MemoryMode.INIT, pathFileWeights);
             }
 
@@ -116,15 +118,14 @@ namespace _34_Belikova_project.NeurNet
                     // Формула: w_i ~ N(0, 2 / (n_in + n_out)), где n_in — количество входных нейронов, n_out — количество выходных нейронов
 
                     double variance = 2.0 / (numofprevneurouns + numofneurons);  // Вычисляем дисперсию
-
+                    double scale = Math.Sqrt(variance);
 
                     for (int i = 0; i < numofneurons; i++)
                     {
                         double sum = 0;
-                        // Инициализируем веса случайными значениями, следуя Xavier инициализации
-                        for (int j = 0; j < numofprevneurouns + 1; j++) // +1 для учета смещения (bias)
+                        for (int j = 0; j < numofprevneurouns + 1; j++) 
                         {
-                            weigths[i, j] = rand.NextDouble() * Math.Sqrt(variance);
+                            weigths[i, j] = (rand.NextDouble() * 2 - 1) * scale;
                             sum += weigths[i, j];
                         }
 

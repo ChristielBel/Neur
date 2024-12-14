@@ -21,7 +21,7 @@
         {
             double[] gr_sum = new double[numofprevneurouns];
 
-            for(int j = 0; j < numofprevneurouns; j++)
+            for(int j = 0; j < gr_sum.Length; j++)
             {
                 double sum = 0;
                 for(int k = 0; k < numofneurons; k++)
@@ -38,10 +38,10 @@
                     double deltaw;
                     if (n == 0)
                     {
-                        deltaw = momentum * lastdeltaweights[i, 0] + learningrate * neurons[i].Derivative * gr_sums[i];
+                        deltaw = momentum * lastdeltaweights[i, 0] + learningrate * Neurons[i].Derivative * gr_sums[i];
                     }
                     else
-                        deltaw = momentum * lastdeltaweights[i, n] + learningrate * neurons[i].Inputs[n - 1] * neurons[i].Derivative * gr_sums[i];
+                        deltaw = momentum * lastdeltaweights[i, n] + learningrate * Neurons[i].Inputs[n - 1] * Neurons[i].Derivative * gr_sums[i];
                     lastdeltaweights[i, n] = deltaw;
                     neurons[i].Weights[n] += deltaw;
                 }

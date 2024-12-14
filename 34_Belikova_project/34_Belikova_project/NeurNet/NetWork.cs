@@ -29,7 +29,7 @@ namespace _34_Belikova_project.NeurNet
 
         public void Train(NetWork net)
         {
-            int epoches = 100; // кол-во эпох обучения(кол-во прогонов программы)
+            int epoches = 30; // кол-во эпох обучения(кол-во прогонов программы)
             net.input_layer = new InputLayer(NetworkMode.Train); //инициализация входного слоя
             double tmpSumError;// временная переменная суммы ошибок
             double[] errors;//вектор сигнала ошибки
@@ -102,12 +102,13 @@ namespace _34_Belikova_project.NeurNet
                     errors = new double[net.fact.Length];
                     for (int x = 0; x < errors.Length; x++)
                     {
-                        if (x == net.input_layer.Testset[i, 0])
-                            errors[x] = 1.0 - net.fact[x];
+                        if (x == net.input_layer.Testset[i, 0])  // Позиция правильного класса
+                            errors[x] = 1.0 - net.fact[x];  // Ошибка для правильного класса
                         else
-                            errors[x] = -net.fact[x];
+                            errors[x] = -net.fact[x];  // Ошибка для остальных классов
 
-                        tmpSumError += errors[x] * errors[x] / 2;
+                        tmpSumError += errors[x] * errors[x] / 2;  // Среднеквадратичная ошибка
+
                     }
                     e_error_avr[k] += tmpSumError / errors.Length;
                 }
