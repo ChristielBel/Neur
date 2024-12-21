@@ -58,7 +58,7 @@ namespace _34_Belikova_project.NeurNet
             for(int i = 0; i < non; i++)
             {
                 double[] tmp_weights = new double[nopn + 1];
-                for(int j = 0; j < nopn; j++)
+                for(int j = 0; j < nopn + 1; j++)
                 {
                     tmp_weights[j] = Weights[i, j];
                 }
